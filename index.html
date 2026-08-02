@@ -3,242 +3,322 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اعتذار لسيرفر Lag City RP</title>
+    <title>قوانين 🥇LAG CITY🎮</title>
     <style>
+        /* --- إعدادات أساسية --- */
         body {
-            background-image: url('https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=1920&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: #fff;
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+            background-color: #0c0c0e;
+            color: #e0e0e0;
             overflow-x: hidden;
-            position: relative;
         }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
-            z-index: 1;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@700;900&display=swap');
 
-        /* شاشة الدخول الاحترافية */
-        #enter-screen {
+        /* --- خلفية علم مصر واقعية بـ CSS فقط (بدون أي صور) --- */
+        .bg-egypt {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: opacity 0.8s ease-out; /* تأثير اختفاء ناعم */
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
+                linear-gradient(to bottom, #ce1126 33.33%, #ffffff 33.33%, #000000 66.66%);
+            background-blend-mode: overlay;
+            z-index: -1;
+            opacity: 0.6;
+            filter: blur(3px);
         }
 
-        #enter-text {
-            font-size: 2rem;
-            color: #ff0000;
-            text-shadow: 0 0 15px #ff0000;
-            animation: pulseEnter 1.5s infinite;
-            border: 2px solid #ff0000;
-            padding: 15px 30px;
-            border-radius: 10px;
-            background: rgba(20, 0, 0, 0.5);
-        }
-
-        @keyframes pulseEnter {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 10px #ff0000; }
-            50% { transform: scale(1.05); box-shadow: 0 0 25px #ff0000; }
-        }
-
-        /* صندوق الرسائل الزجاجي */
-        #text-container {
+        /* --- الحاوية الرئيسية --- */
+        .main-container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
             position: relative;
-            z-index: 2;
-            background: rgba(15, 15, 15, 0.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 0, 0, 0.4);
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.3), inset 0 0 15px rgba(0, 0, 0, 0.8);
-            font-size: 1.6rem;
+        }
+
+        /* --- الهيدر --- */
+        header {
             text-align: center;
-            max-width: 90%;
-            width: 800px;
-            max-height: 80vh;
-            overflow-y: auto;
-            line-height: 1.8;
-            padding: 40px 30px;
-            box-sizing: border-box;
-            display: none; /* مخفي في البداية حتى يتم الدخول */
+            margin-bottom: 30px;
         }
 
-        #text-container::-webkit-scrollbar { display: none; }
-
-        .server-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 25px auto;
-            display: block;
-            object-fit: cover;
-            border: 3px solid #ff0000;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 10px #fff;
-            animation: pulseLogo 2s infinite;
+        /* أنيميشن الألوان المتحركة لجميع النصوص */
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
-        @keyframes pulseLogo {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), 0 0 10px #fff; }
-            50% { box-shadow: 0 0 40px rgba(255, 0, 0, 1), 0 0 20px #fff; }
-        }
-
-        .typed-line {
-            margin: 0 0 15px 0;
-            min-height: 1.2em;
-            word-wrap: break-word;
+        /* تنسيق اسم السيرفر باللون المتحرك (يبدأ بالأحمر) */
+        .server-title {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 65px;
             font-weight: 900;
-            background: linear-gradient(90deg, #333333 0%, #ff0000 25%, #ffffff 50%, #ff0000 75%, #333333 100%);
-            background-size: 200% auto;
-            color: #000;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            
+            background: linear-gradient(270deg, #ff0000, #ffffff, #ff5555, #ff0000);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shineGradient 3s linear infinite;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 0 0 20px rgba(255, 255, 255, 0.2);
-        }
+            animation: gradientMove 4s ease infinite;
 
-        @keyframes shineGradient {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .cursor {
+            filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.6));
             display: inline-block;
-            width: 12px;
-            height: 1.2em;
-            background-color: #ff0000;
-            animation: blink 0.8s infinite;
-            vertical-align: bottom;
-            box-shadow: 0 0 15px #ff0000, 0 0 5px #fff;
-            border-radius: 2px;
         }
 
-        @keyframes blink { 
-            0%, 100% { opacity: 1; } 
-            50% { opacity: 0; } 
+        .server-icons {
+            font-size: 35px;
+            margin-top: 15px;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
-        .main-title {
-            font-size: 2.3rem;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-            text-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000;
+        /* --- مشغل الأغنية --- */
+        .music-player {
+            margin: 0 auto 40px auto;
+            max-width: 600px;
+            border: 2px solid #ff0000;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            background-color: rgba(15, 15, 20, 0.8);
+        }
+
+        .music-player iframe {
+            width: 100%;
+            height: 80px;
+            border: none;
+            display: block;
+        }
+
+        /* --- قسم القوانين --- */
+        .rules-section {
+            background-color: rgba(15, 15, 20, 0.75);
+            border: 1px solid #333;
+            border-top: 3px solid #ff0000;
+            border-radius: 15px;
+            padding: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.2);
+        }
+
+        .rules-header {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 900;
+            margin-bottom: 40px;
+            display: inline-block;
+            padding-bottom: 10px;
+            left: 50%;
+            position: relative;
+            transform: translateX(-50%);
+            border-bottom: 2px dashed #ff0000;
+            
+            background: linear-gradient(270deg, #ff0000, #ffffff, #ff0000);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 3s ease infinite;
+        }
+
+        /* أنيميشن دخول القوانين */
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- تنسيق القانون الواحد --- */
+        .rule-item {
+            position: relative;
+            padding: 20px 60px 20px 20px;
+            margin-bottom: 18px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.05) 100%);
+            border-radius: 10px;
+            border-right: 4px solid transparent;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0;
+            animation: slideUp 0.6s ease forwards;
+        }
+
+        .rule-item:nth-child(1) { animation-delay: 0.1s; }
+        .rule-item:nth-child(2) { animation-delay: 0.2s; }
+        .rule-item:nth-child(3) { animation-delay: 0.3s; }
+        .rule-item:nth-child(4) { animation-delay: 0.4s; }
+        .rule-item:nth-child(5) { animation-delay: 0.5s; }
+        .rule-item:nth-child(n+6) { animation-delay: 0.6s; }
+
+        .rule-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-right: 4px solid #ff0000;
+            transform: translateX(-8px) scale(1.01);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
+        }
+
+        .rule-num {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 26px;
+            font-weight: 900;
+            color: #ff0000;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+        }
+
+        /* تنسيق نص القانون باللون المتحرك (يبدأ بالأحمر) */
+        .rule-text {
+            font-size: 18px;
+            line-height: 1.7;
+            font-weight: 700;
+            
+            background: linear-gradient(270deg, #ff0000, #ffffff, #dcdcdc, #ff0000);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientMove 5s ease infinite;
+        }
+
+        .rule-item:hover .rule-text {
+            background: linear-gradient(270deg, #ffffff, #ffaaaa, #ffffff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- الفوتر --- */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #777;
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        footer span {
+            color: #ff0000;
+        }
+
+        /* --- تجاوب الموقع مع الموبايل --- */
+        @media (max-width: 768px) {
+            .server-title { font-size: 40px; }
+            .rules-section { padding: 25px; }
+            .rule-item { padding: 15px 50px 15px 15px; }
+            .rule-num { font-size: 20px; }
+            .rule-text { font-size: 15px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- شاشة الدخول -->
-    <div id="enter-screen">
-        <div id="enter-text">اضغط هنا للدخول للملف 👆</div>
+    <div class="bg-egypt"></div>
+
+    <div class="main-container">
+        
+        <header>
+            <h1 class="server-title">LAG CITY</h1>
+            <div class="server-icons">
+                🥇 🎮
+            </div>
+        </header>
+
+        <div class="music-player">
+            <iframe src="https://www.youtube.com/embed/iFkQWgF3uWA?autoplay=1&loop=1&playlist=iFkQWgF3uWA" title="LAG CITY MUSIC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <section class="rules-section">
+            <div class="rules-header">قوانين السيرفر</div>
+
+            <div class="rules-content">
+                <div class="rule-item">
+                    <div class="rule-num">01</div>
+                    <div class="rule-text">احترم الاعضاء والادارة</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">02</div>
+                    <div class="rule-text">يمنع التحدث في مواضيع الادارة في الشاتات العامة</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">03</div>
+                    <div class="rule-text">ممنوع ارسال روابط سيرفرات او مواقع الى اعضاء سيرفرنا في الخاص</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">04</div>
+                    <div class="rule-text">ممنوع تطلب مساعده في الخاص او في الشاتات العامة من الاداريين فقط توجه الى تيكت و قل لهم بمشكلتك</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">05</div>
+                    <div class="rule-text">ممنوع اذكار مواضيع سياسية او دينية ( طائفية )</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">06</div>
+                    <div class="rule-text">اذا لديك مشكلة لا تخص سيرفرنا حلها بعيداً عن السيرفر</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">07</div>
+                    <div class="rule-text">ممنوع التكبر على الاعضاء او سبهم بأنك معك رتبة اقوى من الاعضاء</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">08</div>
+                    <div class="rule-text">ممنوع تعمل سبام في الشاتات</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">09</div>
+                    <div class="rule-text">يمنع وضع صورة بروفايل فيها اسم عنصري او تلميح غير لائق</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">10</div>
+                    <div class="rule-text">ممنوع التكلم بأي لغة أخرى، فقط اللغة العربية</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">11</div>
+                    <div class="rule-text">ممنوع المزح مع الاداريين حتى لو كان صديقك ( خاص )</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">12</div>
+                    <div class="rule-text">ممنوع طلب رتبة او كريدت من الاعضاء او الادارة كذلك في الخاص</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">13</div>
+                    <div class="rule-text">لا تتقمص دور المشرفين او الادارة والادمن</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">14</div>
+                    <div class="rule-text">ممنوع التلميح على سيرفرات ليس لنا علاقه فيها ( يعني لا تذكر بدايه الاسم او صورة )</div>
+                </div>
+
+                <div class="rule-item">
+                    <div class="rule-num">15</div>
+                    <div class="rule-text">ممنوع تضع ايموجي ذو تأثير قوي ( ايموجي كبير جدا )</div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            تم التصميم خصيصاً لـ <span>LAG CITY</span> | 🔥🔥🔥
+        </footer>
+
     </div>
 
-    <!-- طبقة الخلفية الداكنة -->
-    <div class="overlay"></div>
-
-    <!-- صندوق الرسائل الزجاجي -->
-    <div id="text-container">
-        <!-- يمكنك تغيير اسم الصورة logo.png إذا أردت رفع شعار السيرفر من جهازك -->
-        <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?q=80&w=200&h=200&auto=format&fit=crop" alt="Lag City RP Logo" class="server-logo">
-    </div>
-
-    <!-- الصوت المرفق -->
-    <audio id="custom-audio" preload="auto" loop>
-        <source src="MagicMic Voice Changer - Lag City RP.wav" type="audio/wav">
-    </audio>
-
-    <script>
-        const container = document.getElementById('text-container');
-        const audio = document.getElementById('custom-audio');
-        const enterScreen = document.getElementById('enter-screen');
-
-        const eventLines = [
-            "⚠️ رسالة إعتذار رسمية ⚠️",
-            "إلى إدارة وأعضاء سيرفر LAG CITY RP",
-            "____________________________________",
-            "\"الاعتراف بالخطأ فضيلة، والاحترام هو أساس مجتمعنا.\"",
-            "أتقدم بخالص الاعتذار والأسف الشديد لسيرفر Lag City RP.",
-            "عن أي تصرف أو خطأ صدر مني وتسبب في أي إزعاج لكم.",
-            "نحن ندرك حجم المجهود الكبير الذي تبذلونه لتطوير السيرفر.",
-            "ونحترم كافة القوانين والإدارة والقائمين على هذا المجتمع.",
-            "إن هذا الاعتذار ينبع من تقديرنا الصادق لكم ولجهودكم.",
-            "نأمل أن تتقبلوا هذا الاعتذار برحابة صدر...",
-            "وأن نفتح صفحة جديدة مبنية على الاحترام المتبادل.",
-            "كل التقدير والإحترام لسيرفر Lag City RP ❤️"
-        ];
-
-        let lineIndex = 0;
-        let charIndex = 0;
-        let currentP = null;
-        let cursorSpan = null;
-
-        function typeWriter() {
-            if (lineIndex < eventLines.length) {
-                if (charIndex === 0) {
-                    currentP = document.createElement('p');
-                    currentP.className = 'typed-line';
-                    if(lineIndex === 0) currentP.classList.add('main-title');
-                    
-                    cursorSpan = document.createElement('span');
-                    cursorSpan.className = 'cursor';
-                    cursorSpan.innerHTML = '&nbsp;';
-                    currentP.appendChild(cursorSpan);
-                    
-                    container.appendChild(currentP);
-                }
-
-                currentP.insertBefore(document.createTextNode(eventLines[lineIndex].charAt(charIndex)), cursorSpan);
-                charIndex++;
-
-                container.scrollTop = container.scrollHeight;
-
-                if (charIndex < eventLines[lineIndex].length) {
-                    setTimeout(typeWriter, 50); 
-                } else {
-                    cursorSpan.remove();
-                    lineIndex++;
-                    charIndex = 0;
-                    setTimeout(typeWriter, 1200); // وقت الانتظار بين كل سطر
-                }
-            }
-        }
-
-        // عند الضغط على شاشة الدخول: يختفي الزر، يعمل الصوت، وتبدأ الرسائل
-        enterScreen.addEventListener('click', () => {
-            // تشغيل الصوت
-            audio.play();
-            
-            // إخفاء شاشة الدخول بتأثير ناعم
-            enterScreen.style.opacity = '0';
-            setTimeout(() => {
-                enterScreen.style.display = 'none';
-                
-                // إظهار صندوق الرسائل وبدء الكتابة
-                container.style.display = 'block';
-                typeWriter();
-            }, 800);
-        });
-
-    </script>
 </body>
 </html>
