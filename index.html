@@ -2,323 +2,202 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>قوانين 🥇LAG CITY🎮</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>قوانين سيرفر LAG CITY RP</title>
     <style>
-        /* --- إعدادات أساسية --- */
+        /* General Styles - Optimized for Performance */
         body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #050505 100%);
+            color: #e0e6ed;
             margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-            background-color: #0c0c0e;
-            color: #e0e0e0;
+            padding: 15px;
+            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Tajawal:wght@700;900&display=swap');
-
-        /* --- خلفية علم مصر واقعية بـ CSS فقط (بدون أي صور) --- */
-        .bg-egypt {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 0, 0, 0.88), rgba(0, 0, 0, 0.88)),
-                linear-gradient(to bottom, #ce1126 33.33%, #ffffff 33.33%, #000000 66.66%);
-            background-blend-mode: overlay;
-            z-index: -1;
-            opacity: 0.6;
-            filter: blur(3px);
-        }
-
-        /* --- الحاوية الرئيسية --- */
-        .main-container {
+        .container {
             max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-            position: relative;
+            margin: 30px auto;
+            background-color: rgba(20, 20, 20, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
-        /* --- الهيدر --- */
-        header {
+        /* Header Styles */
+        .header-section {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        /* أنيميشن الألوان المتحركة لجميع النصوص */
-        @keyframes gradientMove {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Speaker Icon - To represent announcement */
+        .speaker-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: inline-block;
+            color: #ff4d4d; /* لون أحمر */
+            animation: none; /* بدون حركة لضمان الأداء */
         }
 
-        /* تنسيق اسم السيرفر باللون المتحرك (يبدأ بالأحمر) */
-        .server-title {
-            font-family: 'Tajawal', sans-serif;
-            font-size: 65px;
+        /* Animated Rainbow Text - Optimized */
+        h1.server-name {
+            font-size: 40px;
             font-weight: 900;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             
-            background: linear-gradient(270deg, #ff0000, #ffffff, #ff5555, #ff0000);
-            background-size: 300% 300%;
+            background: linear-gradient(90deg, 
+                #ff0000, #ff8000, #ffff00, #00ff00, #0000ff, #4b0082, #ee82ee, #ff0000
+            );
+            background-size: 300% 100%;
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientMove 4s ease infinite;
-
-            filter: drop-shadow(0 0 12px rgba(255, 0, 0, 0.6));
-            display: inline-block;
-        }
-
-        .server-icons {
-            font-size: 35px;
-            margin-top: 15px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255,255,255,0.3);
-        }
-
-        /* --- مشغل الأغنية --- */
-        .music-player {
-            margin: 0 auto 40px auto;
-            max-width: 600px;
-            border: 2px solid #ff0000;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-            background-color: rgba(15, 15, 20, 0.8);
-        }
-
-        .music-player iframe {
-            width: 100%;
-            height: 80px;
-            border: none;
-            display: block;
-        }
-
-        /* --- قسم القوانين --- */
-        .rules-section {
-            background-color: rgba(15, 15, 20, 0.75);
-            border: 1px solid #333;
-            border-top: 3px solid #ff0000;
-            border-radius: 15px;
-            padding: 40px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 40px rgba(255, 0, 0, 0.2);
-        }
-
-        .rules-header {
-            text-align: center;
-            font-size: 32px;
-            font-weight: 900;
-            margin-bottom: 40px;
-            display: inline-block;
-            padding-bottom: 10px;
-            left: 50%;
-            position: relative;
-            transform: translateX(-50%);
-            border-bottom: 2px dashed #ff0000;
+            background-clip: text;
+            color: transparent;
             
-            background: linear-gradient(270deg, #ff0000, #ffffff, #ff0000);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientMove 3s ease infinite;
+            animation: vivid-rainbow 3s linear infinite;
+            will-change: background-position;
         }
 
-        /* أنيميشن دخول القوانين */
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes vivid-rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 300% 50%; }
         }
 
-        /* --- تنسيق القانون الواحد --- */
-        .rule-item {
-            position: relative;
-            padding: 20px 60px 20px 20px;
-            margin-bottom: 18px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.05) 100%);
-            border-radius: 10px;
-            border-right: 4px solid transparent;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            opacity: 0;
-            animation: slideUp 0.6s ease forwards;
-        }
-
-        .rule-item:nth-child(1) { animation-delay: 0.1s; }
-        .rule-item:nth-child(2) { animation-delay: 0.2s; }
-        .rule-item:nth-child(3) { animation-delay: 0.3s; }
-        .rule-item:nth-child(4) { animation-delay: 0.4s; }
-        .rule-item:nth-child(5) { animation-delay: 0.5s; }
-        .rule-item:nth-child(n+6) { animation-delay: 0.6s; }
-
-        .rule-item:hover {
-            background: rgba(255, 255, 255, 0.08);
-            border-right: 4px solid #ff0000;
-            transform: translateX(-8px) scale(1.01);
-            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.2);
-        }
-
-        .rule-num {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 26px;
-            font-weight: 900;
-            color: #ff0000;
-            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
-        }
-
-        /* تنسيق نص القانون باللون المتحرك (يبدأ بالأحمر) */
-        .rule-text {
-            font-size: 18px;
-            line-height: 1.7;
-            font-weight: 700;
-            
-            background: linear-gradient(270deg, #ff0000, #ffffff, #dcdcdc, #ff0000);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradientMove 5s ease infinite;
-        }
-
-        .rule-item:hover .rule-text {
-            background: linear-gradient(270deg, #ffffff, #ffaaaa, #ffffff);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* --- الفوتر --- */
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            color: #777;
-            font-size: 15px;
-            font-weight: bold;
+        h1.pre-title {
+            font-size: 20px;
+            color: #aaa;
+            font-weight: 400;
+            margin-bottom: 10px;
             letter-spacing: 1px;
         }
 
-        footer span {
-            color: #ff0000;
+        hr {
+            border: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff0000, #f1c40f, transparent);
+            margin: 30px 0;
+            opacity: 0.7;
         }
 
-        /* --- تجاوب الموقع مع الموبايل --- */
+        /* Rules List Styles */
+        ol.rules-list {
+            counter-reset: rule-counter;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ol.rules-list li {
+            position: relative;
+            padding: 15px 20px 15px 60px;
+            margin-bottom: 15px;
+            background-color: rgba(40, 40, 40, 0.5);
+            border-radius: 10px;
+            border: 1px solid #444;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            font-size: 16px;
+            color: #ccc;
+        }
+
+        ol.rules-list li:hover {
+            background-color: rgba(255, 0, 0, 0.03);
+            border-color: #ff0000;
+            color: #fff;
+        }
+
+        /* Styling the numbers [1], [2] etc. */
+        ol.rules-list li::before {
+            content: "[" counter(rule-counter) "]";
+            counter-increment: rule-counter;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: bold;
+            color: #FFD700; 
+            font-size: 18px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .server-title { font-size: 40px; }
-            .rules-section { padding: 25px; }
-            .rule-item { padding: 15px 50px 15px 15px; }
-            .rule-num { font-size: 20px; }
-            .rule-text { font-size: 15px; }
+            body {
+                padding: 10px;
+            }
+            .container {
+                margin: 15px auto;
+                padding: 20px;
+                border-radius: 15px;
+            }
+            h1.server-name {
+                font-size: 32px;
+            }
+            h1.pre-title {
+                font-size: 18px;
+            }
+            .speaker-icon {
+                font-size: 50px;
+            }
+            ol.rules-list li {
+                padding: 12px 15px 12px 50px;
+                font-size: 14px;
+            }
+            ol.rules-list li::before {
+                font-size: 16px;
+                left: 10px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-egypt"></div>
-
-    <div class="main-container">
-        
-        <header>
-            <h1 class="server-title">LAG CITY</h1>
-            <div class="server-icons">
-                🥇 🎮
-            </div>
-        </header>
-
-        <div class="music-player">
-            <iframe src="https://www.youtube.com/embed/iFkQWgF3uWA?autoplay=1&loop=1&playlist=iFkQWgF3uWA" title="LAG CITY MUSIC" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="container">
+        <div class="header-section">
+            <!-- أيقونة مكبر الصوت -->
+            <div class="speaker-icon">🌶</div>
+            
+            <h1 class="pre-title">قوانين سيرفر</h1>
+            <h1 class="server-name">LAG CITY RP</h1>
         </div>
+        
+        <hr>
 
-        <section class="rules-section">
-            <div class="rules-header">قوانين السيرفر</div>
+        <ol class="rules-list">
+            <li>احترم الاعضاء و الادارة</li>
+            <li>يمنع التحدث في مواضيع الادارة في الشاتات العامة</li>
+            <li>ممنوع ارسال روابط سيرفرات او مواقع الى اعضاء سيرفرنا في الخاص</li>
+            <li>ممنوع تطلب مساعده في الخاص او في الشاتات العامة من الاداريين فقط توجه الى تيكت و قل لهم بمشكلتك</li>
+            <li>ممنوع اذكار مواضيع سياسية او دينية ( طائفية )</li>
+            <li>اذا لديك مشكلة لا تخص سيرفرنا حلها بعيداً عن السيرفر</li>
+            <li>ممنوع التكبر على الاعضاء او سبهم بأنك معك رتبة اقوى من الاعضاء</li>
+            <li>ممنوع تعمل سبام في الشاتات</li>
+            <li>يمنع وضع صورة بروفايل فيه اسم عنصري او تلميح جنسي</li>
+            <li>ممنوع التكلم في اي اللغة فقط اللغة العربية</li>
+            <li>ممنوع المزح مع الاداريين حتى لو كان صديقك ( خاص )</li>
+            <li>ممنوع طلب رتبة او كريدت من الاعضاء او الادارة كذالك في الخاص</li>
+            <li>لا تتقمص دور المشرفين او الادارة و الادمن</li>
+            <li>ممنوع التلميح على سيرفرات ليس لنا علاقه فيها ( يعني لا تذكر بدايه الاسم او صورة )</li>
+            <li>ممنوع تضع ايموجي ذو تأثير قوي ( ايموجي كبير جدا )</li>
+        </ol>
 
-            <div class="rules-content">
-                <div class="rule-item">
-                    <div class="rule-num">01</div>
-                    <div class="rule-text">احترم الاعضاء والادارة</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">02</div>
-                    <div class="rule-text">يمنع التحدث في مواضيع الادارة في الشاتات العامة</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">03</div>
-                    <div class="rule-text">ممنوع ارسال روابط سيرفرات او مواقع الى اعضاء سيرفرنا في الخاص</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">04</div>
-                    <div class="rule-text">ممنوع تطلب مساعده في الخاص او في الشاتات العامة من الاداريين فقط توجه الى تيكت و قل لهم بمشكلتك</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">05</div>
-                    <div class="rule-text">ممنوع اذكار مواضيع سياسية او دينية ( طائفية )</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">06</div>
-                    <div class="rule-text">اذا لديك مشكلة لا تخص سيرفرنا حلها بعيداً عن السيرفر</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">07</div>
-                    <div class="rule-text">ممنوع التكبر على الاعضاء او سبهم بأنك معك رتبة اقوى من الاعضاء</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">08</div>
-                    <div class="rule-text">ممنوع تعمل سبام في الشاتات</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">09</div>
-                    <div class="rule-text">يمنع وضع صورة بروفايل فيها اسم عنصري او تلميح غير لائق</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">10</div>
-                    <div class="rule-text">ممنوع التكلم بأي لغة أخرى، فقط اللغة العربية</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">11</div>
-                    <div class="rule-text">ممنوع المزح مع الاداريين حتى لو كان صديقك ( خاص )</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">12</div>
-                    <div class="rule-text">ممنوع طلب رتبة او كريدت من الاعضاء او الادارة كذلك في الخاص</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">13</div>
-                    <div class="rule-text">لا تتقمص دور المشرفين او الادارة والادمن</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">14</div>
-                    <div class="rule-text">ممنوع التلميح على سيرفرات ليس لنا علاقه فيها ( يعني لا تذكر بدايه الاسم او صورة )</div>
-                </div>
-
-                <div class="rule-item">
-                    <div class="rule-num">15</div>
-                    <div class="rule-text">ممنوع تضع ايموجي ذو تأثير قوي ( ايموجي كبير جدا )</div>
-                </div>
-            </div>
-        </section>
-
-        <footer>
-            تم التصميم خصيصاً لـ <span>LAG CITY</span> | 🔥🔥🔥
-        </footer>
-
+        <div class="footer">
+            مرحباً بكم في LAG CITY RP - حيث المتعة والاخلاق
+        </div>
     </div>
 
 </body>
-</html>
+    </html>
